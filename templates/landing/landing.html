@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'style.css'%}" type="text/css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h1 class="title">Наш магазин скоро откроется</h1>
+                <h1 class="title">Оставляйте ваш email в форме ниже</h1>
+                <div class="title">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

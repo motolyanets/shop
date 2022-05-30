@@ -1,0 +1,38 @@
+<div class="col-lg-3">
+    <div class="product-item">
+        <div>
+            <a href='http://127.0.0.1:8000/product/{{productImages.product.id}}'>
+                <img src="{{ productImages.image.url }}" class="img-responsive" height="170px">
+            </a>
+        </div>
+        {% if productImages.product.discount %}
+        <div class="discount-container">
+            <span>{{ productImages.product.discount }}%</span>
+        </div>
+        {% endif %}
+        <h5>{{ productImages.product.name }}</h5>
+        <p>{{ productImages.product.description|truncatechars_html:50 }}</p>
+        <h4 class="prise-in-card">{{ productImages.product.price }} BYN</h4>
+        <div class="add-to-card-btn">
+            <button class="btn btn-success">
+                Добавить в корзину
+            </button>
+        </div>
+
+<!--        <div>-->
+<!--            <form id="form_buying_product" class="form-inline" action="{% url 'basket_adding' %}">-->
+<!--                {% csrf_token %}-->
+<!--                <div class="form-group">-->
+<!--                    <input type="number" class="form-control" id="number">-->
+<!--                </div>-->
+<!--                <div class="form-group add-to-card-btn">-->
+<!--                    <button type="submit" id="submit_btn" class="btn btn-success btn-bay" data-product_id="{{ productImages.product.id }}"-->
+<!--                            data-name="{{ productImages.product.name }}" data-price="{{ productImages.product.price }}">-->
+<!--                        Добавить в корзину-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+
+    </div>
+</div>

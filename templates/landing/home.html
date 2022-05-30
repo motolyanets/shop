@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<!--    <div class="section-top">-->
+<!--        <img src="{% static 'img/Apple-Event-Match-27-52.jpg' %}" class="img-responsive">-->
+<!--    </div>-->
+
+    <div class="section section1 iphons-container">
+        <div class="container">
+            <div class="row">
+                <div class="text-center">
+                    <h1>iPhones</h1>
+                </div>
+                <br>
+                {% for productImages in productsImagesIphons %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="section section2 macbooks-container">
+        <div class="container">
+            <div class="row">
+                <div class="text-center">
+                    <h1>MacBooks</h1>
+                </div>
+                {% for productImages in productsImagesMacbooks %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="section section3 ipads-container">
+        <div class="container">
+            <div class="row">
+                <div class="text-center">
+                    <h1>iPads</h1>
+                </div>
+                {% for productImages in productsImagesIpads %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="section section4 airpods-container">
+        <div class="container">
+            <div class="row">
+                <div class="text-center">
+                    <h1>AirPods</h1>
+                </div>
+                {% for productImages in productsImagesAirpods %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="section section5 whatch-container">
+        <div class="container">
+            <div class="row">
+                <div class="text-center">
+                    <h1>Watch</h1>
+                </div>
+                {% for productImages in productsImagesWhatch %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-delivery">
+        <div>
+            <h3>Free shipping</h3>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% load static %}
+
+<nav>
+    <div>
+        <ul id="navbar">
+            <li class="logo">
+                <a href="/">
+                    <img src="{% static 'img/6299082a4e66c223a80d9aab39456e56.png' %}" height="35px">
+                </a>
+            </li>
+            <li><a href="/">Главная</a></li>
+            <li><a href="#">Новости</a></li>
+            <li><a href="#">Контакты</a>
+                <ul>
+                  <li><a href="#">Адрес</a></li>
+                  <li><a href="#">Телефон</a></li>
+                  <li><a href="#">Email</a></li>
+                </ul>
+            </li>
+            <li><a href="#">О нас</a></li>
+            <li class="basket">
+                <div class="basket-container">
+                    <a href="">
+                        Корзина
+                        <span id="basket_total_amount"></span>
+                        <span id="basket_total_number">
+                            {% if productsTotalNumber > 0 %}
+                                ({{ productsTotalNumber }})
+                            {% endif %}
+                        </span>
+                    </a>
+                    <div class="basket-items hidden">
+                        <ul>
+                            {% for productInBasket in productsInBasket %}
+                            <li>
+                                {{ productInBasket.product.name }} {{ productInBasket.number }} , шт.
+                                по {{ productInBasket.pricePerItem }} BYN
+                                <a class="delete-item" href="/" data-product_id="{{ productInBasket.id }}">X</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
