@@ -2,7 +2,7 @@ from django.db import models
 
 
 class ProductCategory(models.Model):
-    name = models.CharField(max_length=128, blank=True, default=None)
+    name = models.CharField(max_length=128, blank=True, default=None, unique=True)
     isActive = models.BooleanField(default=True)
 
     def __str__(self):
@@ -14,7 +14,7 @@ class ProductCategory(models.Model):
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=128, blank=True, default=None)
+    name = models.CharField(max_length=128, blank=True, default=None, unique=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     discount = models.IntegerField(default=0)
     category = models.ForeignKey(ProductCategory, blank=True, null=True, default=None, on_delete=models.CASCADE)

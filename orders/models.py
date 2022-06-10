@@ -1,6 +1,7 @@
 from django.db import models
 from products.models import Product
 from django.db.models.signals import post_save
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Status(models.Model):
@@ -21,7 +22,7 @@ class Order(models.Model):
     totalPrice = models.DecimalField(max_digits=10, decimal_places=2, default=0)# total price for all products in order
     customerName = models.CharField(max_length=128, blank=True, default=None)
     customerEmail = models.EmailField(blank=True, default=None)
-    customerPhone = models.CharField(max_length=48, blank=True, default=None)
+    customerPhone = PhoneNumberField(max_length=48, blank=True, default=None)
     customerAddress = models.CharField(max_length=128, blank=True)
     comments = models.TextField(blank=True, default=None)
     status = models.ForeignKey(Status, on_delete=models.CASCADE)

@@ -13,9 +13,9 @@ def landing(request):
 
 def home(request):
     productsImages = ProductImage.objects.filter(isActive=True, isMain=True)
-    productsImagesIphons = productsImages.filter(product__category__id=1)
-    productsImagesMacbooks = productsImages.filter(product__category__id=2)
-    productsImagesIpads = productsImages.filter(product__category__id=3)
-    productsImagesAirpods = productsImages.filter(product__category__id=4)
-    productsImagesWhatch = productsImages.filter(product__category__id=5)
+    products_category = ProductCategory.objects.filter(isActive=True)
+    products_in_categories = []
+    for category in products_category:
+        products_images_category = productsImages.filter(product__category__name=category)
+        products_in_categories.append(products_images_category)
     return render(request, 'landing/home.html', locals())

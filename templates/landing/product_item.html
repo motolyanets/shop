@@ -1,18 +1,18 @@
 <div class="col-lg-3">
     <div class="product-item">
         <div>
-            <a href='http://127.0.0.1:8000/product/{{productImages.product.id}}'>
-                <img src="{{ productImages.image.url }}" class="img-responsive" height="170px">
+            <a href='http://127.0.0.1:8000/product/{{productImage.product.id}}'>
+                <img src="{{ productImage.image.url }}" class="img-responsive" height="170px">
             </a>
         </div>
-        {% if productImages.product.discount %}
-        <div class="discount-container">
-            <span>{{ productImages.product.discount }}%</span>
-        </div>
+        {% if productImage.product.discount %}
+            <div class="discount-container">
+                <span>{{ productImage.product.discount }}%</span>
+            </div>
         {% endif %}
-        <h5>{{ productImages.product.name }}</h5>
-        <p>{{ productImages.product.description|truncatechars_html:50 }}</p>
-        <h4 class="prise-in-card">{{ productImages.product.price }} BYN</h4>
+        <h5>{{ productImage.product.name }}</h5>
+        <p>{{ productImage.product.description|truncatechars_html:50 }}</p>
+        <h4 class="prise-in-card">{{ productImage.product.price }} BYN</h4>
         <div class="add-to-card-btn">
             <button class="btn btn-success">
                 Добавить в корзину
