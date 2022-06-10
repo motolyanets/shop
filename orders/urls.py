@@ -19,4 +19,5 @@ from .views import *
 
 urlpatterns = [
     path('basket_adding/', basket_adding, name='basket_adding'),
+    path('checkout/', checkout, name='checkout')
 ]

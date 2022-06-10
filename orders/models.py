@@ -5,7 +5,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Status(models.Model):
-    name = models.CharField(max_length=24, blank=True, default=None)
+    name = models.CharField(max_length=24, blank=True, default=None, unique=True)
     isActive = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

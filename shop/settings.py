@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'landing.apps.LandingConfig',
     'products.apps.ProductsConfig',
     'orders.apps.OrdersConfig',
-    'phonenumber_field',
 ]
 
 MIDDLEWARE = [

@@ -71,4 +71,24 @@ $(document).ready(function(){
         basketUpdating(productId, number, isDelete=true)
     })
 
+
+    function calculatingBasketAmount() {
+        let total_order_amount = 0
+        $('.total-product-in-basket-amount').each(function(){
+            total_order_amount += parseFloat($(this).text())
+        })
+        $('#total_order_amount').text(total_order_amount.toFixed(2))
+    }
+
+    $(document).on('change', ".product-in-basket-number", function(){
+        let current_number = $(this).val()
+        let current_tr = $(this).closest('tr')
+        let current_price = parseFloat(current_tr.find('.product-price').text()).toFixed(2)
+        let total_amount = parseFloat(current_number*current_price).toFixed(2)
+        current_tr.find('.total-product-in-basket-amount').text(total_amount)
+        calculatingBasketAmount()
+    })
+
+    calculatingBasketAmount()
+
 });
