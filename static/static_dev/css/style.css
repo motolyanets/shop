@@ -187,3 +187,11 @@ html, body {
 .form-none {
     display: none;
 }
+
+.form-error {
+    color: red;
+}
+
+.input-checkout {
+    width: 50%;
+}

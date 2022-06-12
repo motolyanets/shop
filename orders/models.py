@@ -2,6 +2,7 @@ from django.db import models
 from products.models import Product
 from django.db.models.signals import post_save
 from phonenumber_field.modelfields import PhoneNumberField
+from django.contrib.auth.models import User
 
 
 class Status(models.Model):
@@ -19,12 +20,13 @@ class Status(models.Model):
 
 
 class Order(models.Model):
+    user = models.ForeignKey(User, blank=True, null=True, default=None, on_delete=models.CASCADE)
     totalPrice = models.DecimalField(max_digits=10, decimal_places=2, default=0)# total price for all products in order
     customerName = models.CharField(max_length=128, blank=True, default=None)
     customerEmail = models.EmailField(blank=True, default=None)
     customerPhone = PhoneNumberField(max_length=48, blank=True, default=None)
     customerAddress = models.CharField(max_length=128, blank=True)
-    comments = models.TextField(blank=True, default=None)
+    comments = models.TextField(blank=True, null=True, default=None)
     status = models.ForeignKey(Status, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -61,7 +63,7 @@ class ProductInOrder(models.Model):
     def save(self, *args, **kwargs):
         pricePerItem = self.product.price
         self.pricePerItem = pricePerItem
-        self.totalPrice = self.number * self.pricePerItem
+        self.totalPrice = int(self.number) * self.pricePerItem
 
         super(ProductInOrder, self).save(*args, **kwargs)
 
