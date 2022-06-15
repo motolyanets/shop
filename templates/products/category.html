@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="section section-item">
+        <div class="container">
+            <div class="row">
+                <div class="text-center">
+                    <h1>{{ products_images_category.first.product.category.name }}</h1>
+                </div>
+                <br>
+                    {% for productImage in products_images_category %}
+                        {% include 'landing/product_item.html' %}
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

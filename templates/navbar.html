@@ -9,12 +9,16 @@
                 </a>
             </li>
             <li><a href="/">Главная</a></li>
-            <li><a href="#">Новости</a></li>
-            <li><a href="#">Контакты</a>
-                <ul>
-                  <li><a href="#">Адрес</a></li>
-                  <li><a href="#">Телефон</a></li>
-                  <li><a href="#">Email</a></li>
+            <li><a href="#">Категории</a>
+                <ul class="dropdown">
+<!--                    {% for category in  products_category_list %}-->
+<!--                        <li><a href="http://127.0.0.1:8000/category/{{ category.name }}/">{{ category.name }}</a></li>-->
+<!--                    {% endfor %}-->
+                    <li><a href="http://127.0.0.1:8000/category/iPhone">iPhone</a></li>
+                    <li><a href="http://127.0.0.1:8000/category/MacBook">MacBook</a></li>
+                    <li><a href="http://127.0.0.1:8000/category/iPad">iPad</a></li>
+                    <li><a href="http://127.0.0.1:8000/category/AirPods">AirPods</a></li>
+                    <li><a href="http://127.0.0.1:8000/category/Watch">Watch</a></li>
                 </ul>
             </li>
             <li><a href="#">О нас</a></li>

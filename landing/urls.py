@@ -19,5 +19,7 @@ from .views import *
 
 urlpatterns = [
     path('', home),
+    path('category/<str:category_name>/', category),
     path('landing/', landing),
+    # path('', category_list), #ВОТ МНЕ БЫ ТУТ НАПИСАТЬ ЧТОБЫ ЭТА ФУНКЦИЯ ВЫПОЛНЯЛАСЬ НА ЛЮБОМ URL
 ]
