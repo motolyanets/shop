@@ -5,10 +5,12 @@
                 <img src="{{ productImage.image.url }}" class="img-responsive" height="170px">
             </a>
         </div>
-        {% if productImage.product.discount %}
-            <div class="discount-container">
-                <span>{{ productImage.product.discount }}%</span>
-            </div>
+        {% if user.is_authenticated %}
+            {% if productImage.product.discount %}
+                <div class="discount-container">
+                    <span>{{ productImage.product.discount }}%</span>
+                </div>
+            {% endif %}
         {% endif %}
         <h5>{{ productImage.product.name }}</h5>
         <p>{{ productImage.product.description|truncatechars_html:50 }}</p>

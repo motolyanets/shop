@@ -11,24 +11,33 @@
                     <form class="form-horizontal" method="post">
                         {% csrf_token %}
 
-                        <div class="form-group">
-                            <lable>Имя:</lable>
-                            <span class="form-error">{{ form.name.errors }}</span>
-                            <input type="text" name="{{ form.name.html_name }}" class="form-control input-checkout"
-                                   value="{{ request.POST.name }}">
-                        </div>
-                        <div class="form-group">
-                            <lable>Телефон:</lable>
-                            <span class="form-error">{{ form.phone.errors }}</span>
-                            <input type="text" name="{{ form.phone.html_name }}" class="form-control input-checkout"
-                                   value="{{ request.POST.phone }}">
-                        </div>
-                        <div class="form-group">
-                            <lable>Email:</lable>
-                            <span class="form-error">{{ form.email.errors }}</span>
-                            <input type="text" name="{{ form.email.html_name }}" class="form-control input-checkout"
-                                   value="{{ request.POST.email }}">
-                        </div>
+                        {% if user.is_authenticated %}
+                            <input type="hidden" name="{{ form.name.html_name }}" class="form-control input-checkout"
+                                       value="{{ request.POST.name }}">
+                            <input type="hidden" name="{{ form.phone.html_name }}" class="form-control input-checkout"
+                                       value="{{ request.POST.phone }}">
+                            <input type="hidden" name="{{ form.email.html_name }}" class="form-control input-checkout"
+                                           value="{{ request.POST.email }}">
+                        {% else %}
+                            <div class="form-group">
+                                <lable>Имя:</lable>
+                                <span class="form-error">{{ form.name.errors }}</span>
+                                <input type="text" name="{{ form.name.html_name }}" class="form-control input-checkout"
+                                       value="{{ request.POST.name }}">
+                            </div>
+                            <div class="form-group">
+                                <lable>Телефон:</lable>
+                                <span class="form-error">{{ form.phone.errors }}</span>
+                                <input type="text" name="{{ form.phone.html_name }}" class="form-control input-checkout"
+                                       value="{{ request.POST.phone }}">
+                            </div>
+                            <div class="form-group">
+                                <lable>Email:</lable>
+                                <span class="form-error">{{ form.email.errors }}</span>
+                                <input type="text" name="{{ form.email.html_name }}" class="form-control input-checkout"
+                                       value="{{ request.POST.email }}">
+                            </div>
+                        {% endif %}
 
                         <h3 class="text-center">Товары в корзине</h3>
 

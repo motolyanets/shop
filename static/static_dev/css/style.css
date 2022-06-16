@@ -41,6 +41,12 @@ html, body {
     height: 100%;
     width: 200px;
 }
+#navbar li.autentification {
+    float: right;
+    position: relative;
+    height: 100%;
+    width: auto;
+}
 #navbar li.basket {
     float: right;
     position: relative;
@@ -50,9 +56,8 @@ html, body {
 #navbar li.basket a {
     margin-left: auto;
     min-width: max-content;
-    
-
 }
+
 #navbar li a {
     display: block;
     padding: 6px;
@@ -195,4 +200,9 @@ html, body {
 
 .input-checkout {
     width: 50%;
+}
+
+a {
+    color: black;
+    text-decoration: none;
 }

@@ -84,6 +84,7 @@ post_save.connect(productInOrderPostSave, sender=ProductInOrder)
 
 
 class ProductInBasket(models.Model):
+    user = models.ForeignKey(User, blank=True, null=True, default=None, on_delete=models.CASCADE)
     session_key = models.CharField(max_length=128, blank=True, default=None)
     order = models.ForeignKey(Order, blank=True, null=True, default=None, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, blank=True, null=True, default=None, on_delete=models.CASCADE)
