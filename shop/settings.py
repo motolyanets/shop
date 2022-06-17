@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'landing.apps.LandingConfig',
-    'products.apps.ProductsConfig',
-    'orders.apps.OrdersConfig',
+    'landing',
+    'products',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -152,3 +152,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# AUTH_USER_MODEL = 'orders.User'

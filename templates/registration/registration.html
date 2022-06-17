@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1><a href="{% url 'logout' %}">Выйдите</a> из своего аккаунта чтобы зарегистрировать нового пользователя</h1>
+    {% else %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h1>Регистрация</h1>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ user_form.as_p }}
+                        <button class="btn btn-primary btn-lg" type="submit">Зарегистрироваться</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+{% endblock content %}

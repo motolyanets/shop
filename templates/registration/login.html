@@ -41,7 +41,7 @@
     </form>
 
     <div class="text-center">
-        <a class="link" href="#">Регестрация</a><br>
+        <a class="link" href="{% url 'registration' %}">Регестрация</a><br>
         {# Assumes you setup the password_reset view in your URLconf #}
         <a class="link" href="{% url 'password_reset' %}">Забыли пароль?</a>
     </div>

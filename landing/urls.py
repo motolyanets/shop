@@ -21,4 +21,5 @@ urlpatterns = [
     path('', home),
     path('category/<str:category_name>/', category),
     path('landing/', landing),
+    path('registration/', registration, name='registration'),
 ]

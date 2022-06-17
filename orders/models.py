@@ -3,6 +3,13 @@ from products.models import Product
 from django.db.models.signals import post_save
 from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib.auth.models import User
+# from django.contrib.auth.base_user import AbstractBaseUser
+
+
+# class User(AbstractBaseUser):
+#     phone = PhoneNumberField(max_length=48, blank=True, default=None, unique=True)
+#
+#     USERNAME_FIELD = 'phone'
 
 
 class Status(models.Model):
